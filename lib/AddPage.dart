@@ -117,7 +117,7 @@ class _AddPageState extends State<AddPage> {
                         );
 
                       else{
-                            _homeViewModel.add(MyOrderModel(controlProducts.text, controlAdress.text, controlPhone.text));
+                            _homeViewModel.add(MyOrderModel.empty(products:controlProducts.text,adress: controlAdress.text,phone:controlPhone.text));
                             showDialog<String>(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(

@@ -18,14 +18,14 @@ class OrderList extends StatelessWidget {
           MyOrderModel item = orders.elementAt(index);
           return ListTile(
               minVerticalPadding: 15,
-              title: Text("Order id :" +item.oid.toString(),style: TextStyle(fontSize: 30)),
+              title: Text("Order id :" +item.id.toString(),style: TextStyle(fontSize: 30)),
               tileColor: Colors.blue[10],
               leading: IconButton(onPressed: () {
-                onEdit(item.oid);
+                onEdit(item.id);
               }, icon: const Icon(Icons.edit)),
               trailing:
               IconButton(onPressed: () {
-                onDelete(item.oid);
+                onDelete(item.id);
               }, icon: const Icon(Icons.remove_circle_outline)),
               subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

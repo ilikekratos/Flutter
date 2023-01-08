@@ -21,11 +21,11 @@ class _EditPageState extends State<EditPage> {
   final _adressController = TextEditingController();
 
   late HomeViewModel _homeViewModel;
-  MyOrderModel _order = MyOrderModel("", "", "");
+  MyOrderModel _order = MyOrderModel.empty(products: "", adress: "", phone: "");
 
   @override
   void initState() {
-    _order = MyOrderModel("", "", "");
+    _order = MyOrderModel.empty(products: "", adress: "", phone: "");
     _homeViewModel = Provider.of<HomeViewModel>(context, listen: false);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final id = ModalRoute.of(context)!.settings.arguments as int?;
@@ -146,9 +146,7 @@ class _EditPageState extends State<EditPage> {
                       );
 
                     else{
-                      var sendOrder=MyOrderModel(_productsController.text, _adressController.text, _phoneController.text);
-                      sendOrder.uid=1;
-                      sendOrder.oid=_order.oid;
+                      var sendOrder=MyOrderModel.empty(uid:1,id:_order.id,products:_productsController.text,adress:_adressController.text,phone: _phoneController.text);
                       _homeViewModel.update(sendOrder);
                       showDialog<String>(
                         context: context,
